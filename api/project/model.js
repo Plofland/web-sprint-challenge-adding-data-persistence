@@ -12,6 +12,7 @@ function find() {
 function add(projectData) {
   return db('projects')
     .insert(projectData)
+    //my POST request error is happening right here, projectData is coming in just fine
     .then(([id]) => {
       return db('projects').where('id', id).first();
     });

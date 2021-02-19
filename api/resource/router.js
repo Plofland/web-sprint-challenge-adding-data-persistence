@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
     .then((resources) => {
       res.json(resources);
     })
-    .catch(
+    .catch(() => {
       res
         .status(500)
-        .json({ message: 'Failed to retrieve resources' })
-    );
+        .json({ message: 'Failed to retrieve resources' });
+    });
 });
 
 router.post('/', (req, res) => {

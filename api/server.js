@@ -1,11 +1,12 @@
 const express = require('express');
+const morgan = require('morgan')
 const ResourceRouter = require('./resource/router');
 const ProjectRouter = require('./project/router');
 const TaskRouter = require('./task/router');
 
 const server = express();
 
-server.use(express.json());
+server.use(express.json(), morgan('dev'));
 server.use('/api/resources', ResourceRouter);
 server.use('/api/projects', ProjectRouter);
 server.use('/api/tasks', TaskRouter);
