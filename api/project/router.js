@@ -17,16 +17,25 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
-  const projectData = req.body;
-  projectFunc
-    .add(projectData)
-    .then((project) => {
-      res.status(201).json(project);
-    })
-    .catch(() => {
-      res
-        .status(500)
-        .json({ message: 'Failed to create new project' });
-    });
+router.post('/', async (req, res) => {
+  try {
+    const projectData = req.body;
+    const data = await projectFunc.add(projectData)
+    res.json(data)
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to create new project' });
+  }
+
+  // projectFunc
+  //   .add(projectData)
+  //   .then((project) => {
+  //     res.status(201).json(project);
+  //   })
+  //   .catch(() => {
+  //     res
+  //       .status(500)
+  //       .json({ message: 'Failed to create new project' });
+  //   });
 });
+
+module.exports = router;

@@ -30,3 +30,5 @@ router.post('/', (req, res) => {
         .json({ message: 'Failed to create new task' });
     });
 });
+
+module.exports = router;
