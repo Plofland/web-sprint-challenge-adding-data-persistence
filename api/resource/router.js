@@ -27,19 +27,6 @@ router.post('/', async (req, res) => {
       .status(500)
       .json({ message: 'Failed to create new project' });
   }
-
-
-  // const resourceData = req.body;
-  // resourceFunc
-  //   .add(resourceData)
-  //   .then((resource) => {
-  //     res.status(201).json(resource);
-  //   })
-  //   .catch(() => {
-  //     res
-  //       .status(500)
-  //       .json({ message: 'Failed to create new resource' });
-  //   });
 });
 
 module.exports = router;
